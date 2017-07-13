@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.Schedule>
+
+@{
+    ViewBag.Title = "Container Management";
+}
+
+<h2>Container Management</h2>
+
+<p style="width:5%;background-color:#76E5F6;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="width:100%;text-align:left;background-color:white;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliver_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deliver_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
